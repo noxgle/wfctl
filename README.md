@@ -90,7 +90,7 @@ This follows one feature on issue 42.
 
 1. `workmux add 42-manual-entry --base main` creates the worktree and installs the skills into it.
 2. In the worktree, `/start-session` loads the accepted architecture records and reports where the branch stands. `/speckit.brainstorm` runs the design levels and proposes an architecture record. The record stays `proposed` until you accept it.
-3. Spec Kit writes the spec, plan, and tasks. Clarify, plan review, and analyze each write a scan file recording what they covered and found. wfctl keeps a step open until its scan exists.
+3. Spec Kit writes the spec, plan, and tasks. Clarify, plan review, and analyze each write a scan file recording what they covered and found. wfctl keeps a step open until its scan has a verdict line and a coverage row with a status.
 4. Implement builds the tasks, and the agent refactors the result. `wfctl verify` then runs the repository's own checks and records a verdict against that tree.
 5. When the context window fills, the restart hook has the agent write a handoff, clears the pane, and starts a new session. The new session re-derives where things stand from the files and reads the handoff for anything the files don't record.
 6. The review panel runs on the branch. If the agent then commits again, `wfctl status` shows review as pending, because the new commit has no review covering it.
